@@ -1,0 +1,40 @@
+<h2>Live output</h2>
+<iframe id="output" width="100%" height="600px"></iframe>
+
+<h2>Editable code</h2>
+<p class="a11y-label">
+  Press Esc to move focus away from the code area (Tab inserts a tab character).
+</p>
+
+<textarea id="code" class="playable-code" style="height: 400px;width: 95%">
+const select = document.querySelector("select");
+const list = document.querySelector("ul");
+const h1 = document.querySelector("h1");
+
+select.addEventListener("change", () => {
+  const choice = select.value;
+  createCalendar(choice);
+});
+
+function createCalendar(month) {
+  let days = 31;
+
+  // ADD CONDITIONAL HERE
+
+  list.textContent = "";
+  h1.textContent = month;
+  for (let i = 1; i <= days; i++) {
+    const listItem = document.createElement("li");
+    listItem.textContent = i;
+    list.appendChild(listItem);
+  }
+}
+
+select.value = "January";
+createCalendar("January");
+</textarea>
+
+<div class="playable-buttons">
+  <input id="reset" type="button" value="Reset" />
+  <input id="solution" type="button" value="Show solution" />
+</div>
